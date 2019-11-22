@@ -1,6 +1,7 @@
 import { someReducer } from './someReducer';
 import { combineReducers } from 'redux';
 
-export const Reducers = combineReducers({
+
+export default combineReducers({
   someState: someReducer
 });
