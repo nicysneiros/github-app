@@ -4,8 +4,6 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import SearchInput from './searchInput';
-import SearchButton from './seachButton';
 
 
 export default class SearchForm extends React.Component {
@@ -27,15 +25,19 @@ export default class SearchForm extends React.Component {
       <Form>
         <Row>
           <Col>
-            <SearchInput
-              email={this.state.searchTerm}
-              handleChange={this.handleSearchInputChange}
-            />
+          <Form.Control
+            name="search-input"
+            type="text"
+            value={this.state.searchTerm}
+            onChange={this.handleSearchInputChange}/>
           </Col>
           <Col>
-            <SearchButton
-              handleClick={this.handleSearchClick}
-            />
+            <Button
+              type="button"
+              disabled={this.props.isLoading}
+              onClick={!this.props.isLoading ? this.handleSearchClick : null}>
+                {this.props.isLoading ? 'Loading...' : 'Search'}
+            </Button>
           </Col>
         </Row>
       </Form>
