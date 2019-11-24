@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.user-avatar {
+  border-radius: 100%;
+}
+
+.user-login {
+  align-self: center;
+}
