@@ -53,7 +53,7 @@ class SearchForm extends React.Component {
             value={this.state.searchTerm}
             onChange={this.handleSearchInputChange}/>
           </Col>
-          <Col>
+          <Col xs="auto">
             <Button
               type="button"
               disabled={this.props.isLoading}
