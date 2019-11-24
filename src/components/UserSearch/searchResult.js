@@ -15,7 +15,7 @@ class SearchResult extends React.Component {
         return (
           <ListGroup.Item action key={user.id} href={`/users/${user.id}`}>
             <Row>
-              <Col xs="auto"><img className="user-avatar" src={user.avatar_url} height="48"/></Col>
+              <Col xs="auto"><img className="user-avatar" src={user.avatar_url} height="48" alt=""/></Col>
               <Col className="user-login">{user.login}</Col>
             </Row>
           </ListGroup.Item>
