@@ -5,7 +5,8 @@ import {
 } from '../actionTypes';
 
 const initialState = {
-  isLoading: false
+  isLoading: false,
+  users: []
 };
 
 export const usersReducer = (state = initialState, action) => {
