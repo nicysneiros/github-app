@@ -13,7 +13,7 @@ export default class Routes extends React.Component {
             <UserDetail />
           </Route>
           <Route path="/">
-            <UserSearch />``
+            <UserSearch />
           </Route>
         </Switch>
       </BrowserRouter>
