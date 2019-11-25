@@ -12,10 +12,19 @@ code {
     monospace;
 }
 
+p {
+  margin-bottom: 0px;
+}
+
 .user-avatar {
   border-radius: 100%;
 }
 
 .user-login {
   align-self: center;
+}
+
+.user-stats {
+  text-align: center;
+  margin-top: 20px;
 }
