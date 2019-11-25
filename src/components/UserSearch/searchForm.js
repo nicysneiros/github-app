@@ -8,10 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { searchUsers, searchUsersSuccess, searchUsersError } from '../../store/actions';
-
-
-const GITHUB_API_TOKEN = `${process.env.REACT_APP_GITHUB_API_TOKEN}`;
-const GITHUB_API_USER = `${process.env.REACT_APP_GITHUB_API_USER}`;
+import { GITHUB_DEFAULT_HEADER, GITHUB_BASE_URL } from '../../constants';
 
 
 class SearchForm extends React.Component {
@@ -26,13 +23,9 @@ class SearchForm extends React.Component {
   handleSearchClick = () => {
     this.props.searchUsers();
 
-    const headers = new Headers({
-      'Authorization': 'Basic ' + btoa(`${GITHUB_API_USER}:${GITHUB_API_TOKEN}`)
-    });
+    const url = `${GITHUB_BASE_URL}search/users?q=${this.state.searchTerm}`;
 
-    const url = 'https://api.github.com/search/users?q=' + this.state.searchTerm;
-
-    fetch(url, {method: 'GET', headers: headers})
+    fetch(url, {method: 'GET', headers: GITHUB_DEFAULT_HEADER})
       .then(response => response.json())
       .then(response => {
         this.props.searchUsersSuccess(response);
