@@ -1,7 +1,10 @@
 import { 
   SEARCH_USERS,
   SEARCH_USERS_SUCCESS,
-  SEARCH_USERS_ERROR
+  SEARCH_USERS_ERROR,
+  FETCH_USER,
+  FETCH_USER_SUCCESS,
+  FETCH_USER_ERROR
 } from '../actionTypes';
 
 const initialState = {
@@ -23,6 +26,23 @@ export const usersReducer = (state = initialState, action) => {
         users: action.users
       };
     case SEARCH_USERS_ERROR:
+      return {
+        ...state,
+        isLoading: action.isLoading,
+        error: action.error
+      }
+    case FETCH_USER:
+      return {
+        ...state,
+        isLoading: action.isLoading
+      }
+    case FETCH_USER_SUCCESS:
+      return {
+        ...state,
+        isLoading: action.isLoading,
+        user: action.user
+      }
+    case FETCH_USER_ERROR:
       return {
         ...state,
         isLoading: action.isLoading,
