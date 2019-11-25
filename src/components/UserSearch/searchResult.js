@@ -13,7 +13,7 @@ class SearchResult extends React.Component {
     if(this.props.users) {
       return this.props.users.map(user => {
         return (
-          <ListGroup.Item action key={user.id} href={`/users/${user.id}`}>
+          <ListGroup.Item action key={user.id} href={`/users/${user.login}`}>
             <Row>
               <Col xs="auto"><img className="user-avatar" src={user.avatar_url} height="48" alt=""/></Col>
               <Col className="user-login">{user.login}</Col>

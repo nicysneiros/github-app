@@ -9,12 +9,8 @@ export default class Routes extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/users/:userId">
-            <UserDetail />
-          </Route>
-          <Route path="/">
-            <UserSearch />
-          </Route>
+          <Route path="/users/:username" component={UserDetail}/>
+          <Route path="/" component={UserSearch}/>
         </Switch>
       </BrowserRouter>
     );
