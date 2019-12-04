@@ -12,18 +12,15 @@ import { GITHUB_DEFAULT_HEADER, GITHUB_BASE_URL } from '../../constants';
 
  class UserDetail extends React.Component {
   componentDidMount() {
-    this.props.fetchUser();
-
     const url = `${GITHUB_BASE_URL}users/${this.props.match.params.username}`
 
+    this.props.fetchUser();
     fetch(url, {method: 'GET', headers: GITHUB_DEFAULT_HEADER})
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         this.props.fetchUserSuccess(response);
       })
       .catch(error => {
-        console.log(error);
         this.props.fetchUserError(error);
       });
 
