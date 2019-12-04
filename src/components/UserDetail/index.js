@@ -35,7 +35,7 @@ import { GITHUB_DEFAULT_HEADER, GITHUB_BASE_URL } from '../../constants';
         <React.Fragment>
           <Row>
             <Col xs="auto">
-              <img className="user-avatar" src={this.props.user.avatar_url} width="128" height="128"/>
+              <img className="user-avatar" src={this.props.user.avatar_url} width="128" height="128" alt={this.props.user.name}/>
             </Col>
             <Col>
               <h3>{this.props.user.name}</h3>
