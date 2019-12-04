@@ -29,7 +29,7 @@ import { GITHUB_DEFAULT_HEADER, GITHUB_BASE_URL } from '../../constants';
   renderUserInfo() {
     if(this.props.user) {
       return (
-        <React.Fragment>
+        <Container className="user-info">
           <Row>
             <Col xs="auto">
               <img className="user-avatar" src={this.props.user.avatar_url} width="128" height="128" alt={this.props.user.name}/>
@@ -55,15 +55,15 @@ import { GITHUB_DEFAULT_HEADER, GITHUB_BASE_URL } from '../../constants';
               <p>Repos</p>
             </Col>
           </Row>
-        </React.Fragment>
+        </Container>
       );
     }
   }
 
   render() {
     return (
-      <Container>
-        <h1>Github User Detail</h1>
+      <Container className="page-container">
+        <h1 className="page-title">Github User Detail</h1>
         {this.renderUserInfo()}
       </Container>
     );
