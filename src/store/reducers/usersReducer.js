@@ -1,4 +1,4 @@
-import { 
+import {
   SEARCH_USERS,
   SEARCH_USERS_SUCCESS,
   SEARCH_USERS_ERROR,
@@ -17,19 +17,19 @@ export const usersReducer = (state = initialState, action) => {
     case SEARCH_USERS:
       return {
         ...state,
-        isLoading: action.isLoading
+        isLoading: true
       };
     case SEARCH_USERS_SUCCESS:
       return {
         ...state,
-        isLoading: action.isLoading,
-        users: action.users
+        isLoading: initialState.isLoading,
+        users: action.response.data.items
       };
     case SEARCH_USERS_ERROR:
       return {
         ...state,
-        isLoading: action.isLoading,
-        error: action.error
+        isLoading: initialState.isLoading,
+        errorMessage: action.error.data.message
       }
     case FETCH_USER:
       return {

@@ -1,3 +1,6 @@
+import { fetchFromApi } from "react-redux-api-tools";
+
+import { GITHUB_BASE_URL, GITHUB_DEFAULT_HEADER } from '../../constants';
 import {
     SEARCH_USERS,
     SEARCH_USERS_SUCCESS,
@@ -7,30 +10,23 @@ import {
     FETCH_USER_ERROR
 } from '../actionTypes';
 
-export const searchUsers = value => {
-    return {
-        type: SEARCH_USERS,
-        isLoading: true
-    };
-}
 
-export const searchUsersSuccess = value => {
-    const users = value.items;
-    return {
-        type: SEARCH_USERS_SUCCESS,
-        isLoading: false,
-        users: users
-    };
-}
-
-export const searchUsersError = value => {
-    const error = value.message;
-    return {
-        type: SEARCH_USERS_ERROR,
-        isLoading: false,
-        error: error
+export const searchUsers = searchTerm => {
+    const url = `${GITHUB_BASE_URL}search/users?q=${searchTerm}`;
+    const requestData = {
+        headers: GITHUB_DEFAULT_HEADER
     }
+
+    return {
+        types: {
+            request: SEARCH_USERS,
+            success: SEARCH_USERS_SUCCESS,
+            failure: SEARCH_USERS_ERROR
+        },
+        apiCallFunction: () => fetchFromApi(url, requestData)
+    };
 }
+
 
 export const fetchUser = value => {
     return {

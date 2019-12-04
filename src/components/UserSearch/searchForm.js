@@ -7,8 +7,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { searchUsers, searchUsersSuccess, searchUsersError } from '../../store/actions';
-import { GITHUB_DEFAULT_HEADER, GITHUB_BASE_URL } from '../../constants';
+import { searchUsers } from '../../store/actions';
 
 
 class SearchForm extends React.Component {
@@ -21,18 +20,7 @@ class SearchForm extends React.Component {
   }
 
   handleSearchClick = () => {
-    this.props.searchUsers();
-
-    const url = `${GITHUB_BASE_URL}search/users?q=${this.state.searchTerm}`;
-
-    fetch(url, {method: 'GET', headers: GITHUB_DEFAULT_HEADER})
-      .then(response => response.json())
-      .then(response => {
-        this.props.searchUsersSuccess(response);
-      })
-      .catch(error => {
-        this.props.searchUsersError(error);
-      });
+    this.props.searchUsers(this.state.searchTerm);
   }
 
   render() {
@@ -65,7 +53,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ searchUsers, searchUsersSuccess, searchUsersError }, dispatch);
+  return bindActionCreators({ searchUsers }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
