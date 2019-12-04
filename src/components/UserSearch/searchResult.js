@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Alert from 'react-bootstrap/Alert';
 import Row from 'react-bootstrap/Row';
@@ -28,7 +29,12 @@ class SearchResult extends React.Component {
     return (
       <React.Fragment>
         {this.props.error ? <Alert variant='danger'>{this.props.error}</Alert> : null}
-        <ListGroup>{this.renderUsers()}</ListGroup>
+        {this.props.users.length ?
+          <Container className="inner-page-container search-result">
+            <ListGroup>{this.renderUsers()}</ListGroup>
+          </Container>
+          : null
+        }
       </React.Fragment>
     );
   }

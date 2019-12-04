@@ -9,8 +9,8 @@ import SearchResult from './searchResult';
 export default class UserSearch extends React.Component {
   render() {
     return (
-      <Container>
-        <h1>Github User Search</h1>
+      <Container  className="page-container">
+        <h1 className="page-title">Github User Search</h1>
         <SearchForm />
         <SearchResult />
       </Container>

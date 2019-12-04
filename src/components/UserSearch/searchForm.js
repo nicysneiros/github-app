@@ -25,7 +25,7 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-      <Form>
+      <Form className="search-form">
         <Row>
           <Col>
           <Form.Control
@@ -36,6 +36,7 @@ class SearchForm extends React.Component {
           </Col>
           <Col xs="auto">
             <Button
+              className="search-btn"
               type="button"
               disabled={this.props.isLoading}
               onClick={!this.props.isLoading ? this.handleSearchClick : null}>
