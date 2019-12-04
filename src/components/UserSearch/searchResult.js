@@ -27,7 +27,7 @@ class SearchResult extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Alert variante='danger'>{this.props.error}</Alert>
+        {this.props.error ? <Alert variant='danger'>{this.props.error}</Alert> : null}
         <ListGroup>{this.renderUsers()}</ListGroup>
       </React.Fragment>
     );
